@@ -37,7 +37,7 @@ map <F9> <Plug>PreviewWord
 imap <F10> <Plug>ClosePreviewWindow
 map <F10> <Plug>ClosePreviewWindow
 
-source ./plugins.vim
+source ~/.vim/myvimrc/plugins.vim
 
 let g:pdv_template_dir=$HOME .'/.vim/bundle/pdv/templates_snip'
 
