@@ -4,6 +4,14 @@ syntax on
 " Backspace wie sonst überall auch
 set backspace=2
 
+" If you're using a symlink to your script, but your resources are in
+" the same directory as the actual script, you'll need to do this:
+"   1: Get the absolute path of the script
+"   2: Resolve all symbolic links
+"   3: Get the folder of the resolved absolute file
+let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+
+
 " no bell
 set noerrorbells
 set novisualbell
@@ -37,7 +45,7 @@ map <F9> <Plug>PreviewWord
 imap <F10> <Plug>ClosePreviewWindow
 map <F10> <Plug>ClosePreviewWindow
 
-source ~/.vim/myvimrc/plugins.vim
+execute "source ".s:path."/plugins.vim"
 
 let g:pdv_template_dir=$HOME .'/.vim/bundle/pdv/templates_snip'
 
@@ -58,6 +66,7 @@ set sw=3
 
 function! g:UltiSnips_Complete()
     call UltiSnips#ExpandSnippet()
+	 echo g:ulti_expand_res
     if g:ulti_expand_res == 0
         if pumvisible()
             return "\<C-n>"
@@ -99,7 +108,7 @@ let NERDTreeWinSize=25
 " Enable Alt-1 in sterm
 execute "set <A-1>=\e1"
 nnoremap <A-1> :NERDTreeToggle<CR>
-inoremap <A-1> :NERDTreeToggle<CR>
+inoremap <A-1> <ESC>:NERDTreeToggle<CR>
 "NERDTreeAddKeyMap({'key':'c',
 "					\'callback':'NERDTreeNewFiles'
 "					\'quickhelpText':'Invoke newfiles script'
@@ -118,12 +127,13 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 source ~/.vim/folding.vim
 
 " lh-cpp
-"autocmd BufNew let b:usemarks=0
+autocmd BufNew let b:usemarks=0
 "let g:load_doxygen_syntax=1
-"autocmd BufNew let b:cb_jump_on_close=1
-"imap <C-n> <Plug>MarkersJumpF
+autocmd BufNew let b:cb_jump_on_close=1
 map <C-n> <Plug>MarkersJumpF
 map <C-p> <Plug>MarkersJumpB
+imap <C-n> <Plug>MarkersJumpF
+imap <C-p> <Plug>MarkersJumpB
 autocmd Filetype cpp map <C-d> <ESC>:Dox<CR>
 autocmd FileType php map <c-d> :call pdv#DocumentWithSnip()<CR>
 
@@ -139,7 +149,7 @@ map <C-k> <Plug>(easymotion-b)
 
 "YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_use_ultisnips_completer=0
+" let g:ycm_use_ultisnips_completer=0
 map <C-g> :YcmCompleter GoToDeclaration<CR>
 let g:ycm_error_symbol = 'E>'
 let g:ycm_warning_symbol = 'W>'
@@ -227,7 +237,7 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " let g:c_nl_before_curlyB = 0
-let g:marker_select_empty_marks = 0
+" let g:marker_select_empty_marks = 0
 let g:ShowVirtual = 0
 let g:ShowStatic = 0
 map <Leader>i :GOTOIMPL<CR>
@@ -241,12 +251,7 @@ augroup END " }
 set exrc
 set secure
 
-" Function / Macro to write all parameters given to a constructor to its
-" attributes
-function! Initialize()
-	" Add " :" to the end of the line if it is not there yet
-	s/\(^.*)\)\s*\(:\s*\)\=$/\1 :
-endfunction
+execute "source ".s:path."/initialize.vim"
 
 "
 " Inside:
@@ -260,3 +265,4 @@ endfunction
 " mLETTER -> global mark
 " 'letter / 'LETTER -> return to mark
 "
+

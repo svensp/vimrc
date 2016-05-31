@@ -1,7 +1,9 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-filetype off
 
 Plugin 'VundleVim/Vundle.vim'
 
@@ -68,3 +70,4 @@ Plugin 'LucHermitte/local_vimrc'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+filetype plugin on    " required
