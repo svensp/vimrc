@@ -13,6 +13,11 @@ Plugin 'skwp/greplace.vim'
 
 Plugin 'scrooloose/nerdtree'
 
+" Shows git status flags in nerdtree
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+Plugin 'low-ghost/nerdtree-fugitive'
+
 Plugin 'vim-scripts/a.vim'
 
 "Plugin 'vim-scripts/ShowMarks'
