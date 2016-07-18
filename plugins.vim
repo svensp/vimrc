@@ -68,6 +68,9 @@ Bundle 'LucHermitte/lh-cpp'
 Plugin 'LucHermitte/vim-refactor'
 Plugin 'LucHermitte/local_vimrc'
 
+" yaml
+Plugin 'avakhov/vim-yaml'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 filetype plugin on    " required
