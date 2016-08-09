@@ -252,6 +252,8 @@ set exrc
 set secure
 
 execute "source ".s:path."/initialize.vim"
+nmap <Leader>/ :Initialize<CR>
+nmap s :w<CR>
 
 "
 " Inside:

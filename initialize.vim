@@ -10,9 +10,9 @@
 	:let @b="\t".@b."( ".s:targetName." )"
 	" Add " :" to the end of the line if it is not there yet
 	:s/\(^.*)\)\s*\({\s*\)$/\1\r\2/e
-	normal `z
+	normal g`z
 	:s/\(^.*)\)\s*\(:\s*\)\=$/\1 :/e
-	normal `z
+	normal g`z
 
 	call search("{")
 	:put! b
@@ -20,7 +20,7 @@
 	if line(".") != s:constructor_line
 		:s/^\(.*$\)/\1,/e
 	endif
-	normal `z
+	normal g`z
 :endfunction
 
 command! Initialize call Initialize()
