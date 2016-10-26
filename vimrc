@@ -105,6 +105,7 @@ let NERDTreeDirArrows=1
 let NERDTreeSortOrder=['\/$', '((\.h$)|(\.cpp$))', '*', '\.swp$',  '\.bak$', '\~$']
 let NERDTreeWinSize=25
 
+set timeout ttimeoutlen=30
 " Enable Alt-1 in sterm
 execute "set <A-1>=\e1"
 nnoremap <A-1> :NERDTreeToggle<CR>
@@ -124,7 +125,7 @@ autocmd BufRead,BufNewFile   *.cpp set foldlevel=0
 autocmd BufRead,BufNewFile   *.cpp set foldlevel=0
 noremap <C-a> za
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-source ~/.vim/folding.vim
+execute "source ".s:path."/folding.vim"
 
 " lh-cpp
 autocmd BufNew let b:usemarks=0
