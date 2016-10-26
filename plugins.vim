@@ -32,8 +32,6 @@ Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'w0ng/vim-hybrid'
 
-Plugin 'xsbeats/vim-blade'
-
 Plugin 'Lokaltog/vim-easymotion'
 
 Plugin 'kien/ctrlp.vim'
@@ -63,7 +61,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 
 Bundle 'LucHermitte/lh-vim-lib'
-Bundle 'LucHermitte/lh-tags'
+"Bundle 'LucHermitte/lh-tags'
 Bundle 'LucHermitte/lh-dev'
 Bundle 'LucHermitte/lh-brackets'
 Bundle 'LucHermitte/searchInRuntime'
