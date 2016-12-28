@@ -196,7 +196,7 @@ set nobackup
 set noswapfile
 set laststatus=2
 
-autocmd BufRead,BufNewFile   * set cmdheight=1
+autocmd BufRead,BufNewFile   ?* set cmdheight=1
 " Fix blade auto-indent"
 autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade
 
@@ -255,6 +255,17 @@ set secure
 execute "source ".s:path."/initialize.vim"
 nmap <Leader>/ :Initialize<CR>
 nmap s :w<CR>
+vmap <LEADER>i :s/ = 0//<CR>
+
+" local_vim_rc
+let g:local_vimrc = ['.project.vim']
+call lh#local_vimrc#munge('whitelist', $HOME.'/Projekte')
+" build-tools-wrapper
+let g:BTW_make_in_background=1
+let g:BTW_autoscroll_background_compilation=1
+let g:alternates = {'searchpath': 'sfr:.:'}
+
+" Set lhs alternate-lite searchpath to same directory as the current file
 
 "
 " Inside:
@@ -268,5 +279,4 @@ nmap s :w<CR>
 " mLETTER -> global mark
 " 'letter / 'LETTER -> return to mark
 "
-
 
