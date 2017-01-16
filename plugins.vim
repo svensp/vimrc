@@ -13,6 +13,8 @@ Plugin 'skwp/greplace.vim'
 
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'craigemery/vim-autotag'
+
 " Shows git status flags in nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
@@ -58,6 +60,7 @@ Plugin 'tpope/vim-surround'
 
 "Plugin 'airblade/vim-gitgutter'
 
+Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-fugitive'
 
 Bundle 'LucHermitte/lh-vim-lib'
