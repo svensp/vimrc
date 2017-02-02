@@ -230,8 +230,8 @@ highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
 match OverLength /\%>80v.\+/
 
 set viewoptions-=options
-au BufWinLeave ?* mkview
-au BufWinEnter ?* silent loadview
+"au BufWinLeave ?* mkview
+"au BufWinEnter ?* silent loadview
 
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
@@ -251,10 +251,12 @@ augroup END " }
 
 set exrc
 set secure
+let g:preview_if_hold=0
 
 execute "source ".s:path."/initialize.vim"
 nmap <Leader>/ :Initialize<CR>
 nmap s :w<CR>
+nmap <Leader><Leader>d :!docker build .<CR>
 
 "
 " Inside:

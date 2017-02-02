@@ -61,7 +61,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 
 Bundle 'LucHermitte/lh-vim-lib'
-"Bundle 'LucHermitte/lh-tags'
+Bundle 'LucHermitte/lh-tags'
 Bundle 'LucHermitte/lh-dev'
 Bundle 'LucHermitte/lh-brackets'
 Bundle 'LucHermitte/searchInRuntime'
@@ -73,6 +73,8 @@ Plugin 'LucHermitte/local_vimrc'
 
 " yaml
 Plugin 'avakhov/vim-yaml'
+
+Plugin 'smerrill/vcl-vim-plugin'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
