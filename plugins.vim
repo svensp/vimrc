@@ -13,6 +13,8 @@ Plugin 'skwp/greplace.vim'
 
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'craigemery/vim-autotag'
+
 " Shows git status flags in nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
@@ -38,7 +40,7 @@ Plugin 'kien/ctrlp.vim'
 
 "Plugin 'vim-scripts/ClosePairs'
 
-Plugin 'vim-scripts/DoxygenToolkit.vim'
+"Plugin 'vim-scripts/DoxygenToolkit.vim'
 
 "Plugin 'tpope/vim-commentary'
 "Plugin 'shawncplus/phpcomplete.vim'
@@ -58,15 +60,18 @@ Plugin 'tpope/vim-surround'
 
 "Plugin 'airblade/vim-gitgutter'
 
+Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-fugitive'
 
 Bundle 'LucHermitte/lh-vim-lib'
+"Bundle 'LucHermitte/vim-build-tools-wrapper'
 Bundle 'LucHermitte/lh-tags'
 Bundle 'LucHermitte/lh-dev'
 Bundle 'LucHermitte/lh-brackets'
 Bundle 'LucHermitte/searchInRuntime'
 Bundle 'LucHermitte/mu-template'
 Bundle 'tomtom/stakeholders_vim'
+Bundle 'LucHermitte/alternate-lite'
 Bundle 'LucHermitte/lh-cpp'
 Plugin 'LucHermitte/vim-refactor'
 Plugin 'LucHermitte/local_vimrc'
@@ -79,3 +84,4 @@ Plugin 'smerrill/vcl-vim-plugin'
 call vundle#end()            " required
 filetype plugin indent on    " required
 filetype plugin on    " required
+

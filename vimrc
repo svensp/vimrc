@@ -99,6 +99,7 @@ endif
 let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeDirArrows=1
+let g:NERDTreeHijackNetrw=0
 
 let NERDTreeIgnore=['.*\.o', '\~$']
 let NERDTreeDirArrows=1
@@ -108,8 +109,13 @@ let NERDTreeWinSize=25
 set timeout ttimeoutlen=30
 " Enable Alt-1 in sterm
 execute "set <A-1>=\e1"
+execute "set <A-2>=\e2"
 nnoremap <A-1> :NERDTreeToggle<CR>
 inoremap <A-1> <ESC>:NERDTreeToggle<CR>
+nmap <C-f> <Plug>VinegarUp
+nmap <C-q> :CtrlPBufTag<CR>
+"nnoremap <A-2> :NERDTreeFind<CR>
+"inoremap <A-2> <ESC>:NERDTreeFind<CR>
 "NERDTreeAddKeyMap({'key':'c',
 "					\'callback':'NERDTreeNewFiles'
 "					\'quickhelpText':'Invoke newfiles script'
@@ -196,7 +202,7 @@ set nobackup
 set noswapfile
 set laststatus=2
 
-autocmd BufRead,BufNewFile   * set cmdheight=1
+autocmd BufRead,BufNewFile   ?* set cmdheight=1
 " Fix blade auto-indent"
 autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade
 
@@ -257,6 +263,31 @@ execute "source ".s:path."/initialize.vim"
 nmap <Leader>/ :Initialize<CR>
 nmap s :w<CR>
 nmap <Leader><Leader>d :!docker build .<CR>
+vmap <LEADER>i :s/ = 0//<CR>
+
+" local_vim_rc
+let g:local_vimrc = ['.project.vim']
+call lh#local_vimrc#munge('whitelist', $HOME.'/Projekte')
+" build-tools-wrapper
+let g:BTW_make_in_background=1
+let g:BTW_autoscroll_background_compilation=1
+let g:alternates = {'searchpath': 'sfr:.:'}
+
+" Git binds
+nmap <Leader>ga :Gcommit -a<CR>
+nmap <Leader>gc :Gcommit<CR>
+nmap <Leader>gp :Gpush<CR>
+
+"--- --- --- Edit Vimrc --- --- ---
+nmap <Leader>vi :e 
+execute "nmap <Leader>vi :e".expand("<sfile>")."<CR>"
+augroup reload_vimrc " {
+	autocmd!
+	autocmd BufWritePost $MYVIMRC source $MYVIMRC
+	execute "autocmd BufWritePost ".expand("<sfile>")." source ".expand("<sfile>")
+augroup END " }
+
+" Set lhs alternate-lite searchpath to same directory as the current file
 
 "
 " Inside:
@@ -270,5 +301,4 @@ nmap <Leader><Leader>d :!docker build .<CR>
 " mLETTER -> global mark
 " 'letter / 'LETTER -> return to mark
 "
-
 
